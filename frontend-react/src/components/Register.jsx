@@ -23,13 +23,17 @@ const Register = () => {
       setSuccess(true)
       setErrors({})
     }catch(err){
-      setErrors(err.response.data)
-      console.log(err.response.data);
+      if (err.response) {
+        console.log(err.response.data);
+    } else {
+        console.log("CORS / Network Error:", err);
+    }
     }finally{
       setLoading(false)
     }
   }
-  
+ 
+
   return (
     
     <>
